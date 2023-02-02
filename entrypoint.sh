@@ -132,21 +132,21 @@ if [[ -n "$INPUT_FILES" ]]; then
   echo "Input files: ${ALL_INPUT_FILES[*]}"
   echo "Matching modified files: ${ALL_MODIFIED_FILES[*]}"
   if [[ -n "$ALL_MODIFIED_FILES" ]]; then
-    echo "::set-output name=any_changed::true"
+    echo "any_changed=true" >> $GITHUB_OUTPUT
   else
-    echo "::set-output name=any_changed::false"
+    echo "any_changed=false" >> $GITHUB_OUTPUT
   fi
 fi
 
-echo "::set-output name=added_files::$ADDED"
-echo "::set-output name=copied_files::$COPIED"
-echo "::set-output name=deleted_files::$DELETED"
-echo "::set-output name=modified_files::$MODIFIED"
-echo "::set-output name=renamed_files::$RENAMED"
-echo "::set-output name=type_changed_files::$TYPE_CHANGED"
-echo "::set-output name=unmerged_files::$UNMERGED"
-echo "::set-output name=unknown_files::$UNKNOWN"
-echo "::set-output name=all_changed_files::$ALL_CHANGED"
-echo "::set-output name=all_modified_files::$ALL_MODIFIED_FILES"
+echo "added_files=$ADDED" >> $GITHUB_OUTPUT
+echo "copied_files=$COPIED" >> $GITHUB_OUTPUT
+echo "deleted_files=$DELETED" >> $GITHUB_OUTPUT
+echo "modified_files=$MODIFIED" >> $GITHUB_OUTPUT
+echo "renamed_files=$RENAMED" >> $GITHUB_OUTPUT
+echo "type_changed_files=$TYPE_CHANGED" >> $GITHUB_OUTPUT
+echo "unmerged_files=$UNMERGED" >> $GITHUB_OUTPUT
+echo "unknown_files=$UNKNOWN" >> $GITHUB_OUTPUT
+echo "all_changed_files=$ALL_CHANGED" >> $GITHUB_OUTPUT
+echo "all_modified_files=$ALL_MODIFIED_FILES" >> $GITHUB_OUTPUT
 
 echo "::endgroup::"
